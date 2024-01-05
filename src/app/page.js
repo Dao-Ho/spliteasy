@@ -23,6 +23,13 @@ function Home() {
     };
   }, [isMobile]);
 
+  const [numPeople, setNumPeople] = useState(0)
+
+  const handleNum = (number) => {
+    setNumPeople(number)
+    console.log(numPeople)
+  }
+
   return (
     <div className="w-screem h-screen">
       <div class="flex-row">
@@ -51,20 +58,28 @@ function Home() {
           </h1>
         </div>
       </div>
-      <div class={isMobile? " pt-[5vh] flex w-full justify-center h-full text-[6.5vw] space-x-[5vw]" : " pt-[5vh] flex w-full justify-center h-full space-x-[3vw] text-[3vw]"}>
-        <button class={isMobile? "w-[12vw] h-[10vh] border border-black rounded-[3vw]" : "w-[10vw] h-[10vh] border border-black rounded-3xl"}>
+      <div class={isMobile? " pt-[5vh] flex w-full justify-center h-full text-[6.5vw] space-x-[5vw] text-white" : " pt-[5vh] flex w-full justify-center h-full space-x-[3vw] text-[3vw] text-white"}>
+        <button onClick={() => handleNum(1)}
+        class={isMobile? "w-[12vw] h-[10vh] border border-black rounded-[3vw] bg-[#101010]" : "w-[10vw] h-[10vh] border border-black rounded-3xl bg-[#101010] transition hover:scale-105"}>
           1
         </button>
-        <button class={isMobile? "w-[12vw] h-[10vh] border border-black rounded-[3vw]" : "w-[10vw] h-[10vh] border border-black rounded-3xl"}>
+        <button
+        onClick={() => handleNum(2)} 
+        class={isMobile? "w-[12vw] h-[10vh] border border-black rounded-[3vw] bg-[#101010]" : "w-[10vw] h-[10vh] border border-black rounded-3xl bg-[#101010] transition hover:scale-105"}>
           2
         </button>
-        <button class={isMobile? "w-[12vw] h-[10vh] border border-black rounded-[3vw]" : "w-[10vw] h-[10vh] border border-black rounded-3xl"}>
+        <button 
+        onClick={() => handleNum(3)} 
+        class={isMobile? "w-[12vw] h-[10vh] border border-black rounded-[3vw] bg-[#101010]" : "w-[10vw] h-[10vh] border border-black rounded-3xl bg-[#101010] transition hover:scale-105"}>
           3
         </button>
-        <button class={isMobile? "w-[12vw] h-[10vh] border border-black rounded-[3vw]" : "w-[10vw] h-[10vh] border border-black rounded-3xl"}>
+        <button onClick={() => handleNum(4)}  
+        class={isMobile? "w-[12vw] h-[10vh] border border-black rounded-[3vw] bg-[#101010]" : "w-[10vw] h-[10vh] border border-black rounded-3xl bg-[#101010] transition hover:scale-105"}>
           4
         </button>
-        <button class={isMobile? "w-[12vw] h-[10vh] border border-black rounded-[3vw]" : "w-[10vw] h-[10vh] border border-black rounded-3xl"}>
+        <button 
+        onClick={() => handleNum(5)} 
+        class={isMobile? "w-[12vw] h-[10vh] border border-black rounded-[3vw] bg-[#101010]" : "w-[10vw] h-[10vh] border border-black rounded-3xl bg-[#101010] transition hover:scale-105"}>
           5
         </button>
     
