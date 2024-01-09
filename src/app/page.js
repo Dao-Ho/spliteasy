@@ -1,10 +1,11 @@
 "use client";
 import { useEffect, useState } from "react";
-
-import peopleButton  from './components/button'
+import Link from "next/link";
 
 function Home() {
   const [isMobile, setIsMobile] = useState(false);
+  const [people, setPeople] = useState(0);
+
   //checks if the screen is a mobile screen
   useEffect(() => {
     const resize = () => {
@@ -23,13 +24,6 @@ function Home() {
     };
   }, [isMobile]);
 
-  const [numPeople, setNumPeople] = useState(0)
-
-  const handleNum = (number) => {
-    setNumPeople(number)
-    console.log(numPeople)
-  }
-
   return (
     <div className="w-screem h-screen">
       <div class="flex-row">
@@ -47,42 +41,117 @@ function Home() {
             </h1>
           </div>
         </div>
-        <div className="inline-flex w-full justify-center font-bold font-poppins">
+        <div className="inline-flex w-full justify-center font-bold font-poppins -translate-y-[0.5vh]">
           <h1 class={isMobile ? "text-[4vw]" : "text-[1.75vw]"}>
             100% Web-based Solution to Bill Splitting
           </h1>
         </div>
-        <div class={isMobile? "inline-flex w-full justify-center font-bold pt-[5vw]" : "inline-flex w-full justify-center font-bold"}>
-          <h1 class={isMobile? "text-[7vw]" : "text-[5vw]"}>
-          How Many People?
+        <div
+          class={
+            isMobile
+              ? "inline-flex w-full justify-center font-bold pt-[10vw]"
+              : "inline-flex w-full justify-center font-bold"
+          }
+        >
+          <h1 class={isMobile ? "text-[7vw]" : "text-[5vw]"}>
+            How Many People?
           </h1>
         </div>
       </div>
-      <div class={isMobile? " pt-[5vh] flex w-full justify-center h-full text-[6.5vw] space-x-[5vw] text-white" : " pt-[5vh] flex w-full justify-center h-full space-x-[3vw] text-[3vw] text-white"}>
-        <button onClick={() => handleNum(1)}
-        class={isMobile? "w-[12vw] h-[10vh] border border-black rounded-[3vw] bg-[#101010]" : "w-[10vw] h-[10vh] border border-black rounded-3xl bg-[#101010] transition hover:scale-105"}>
-          1
-        </button>
+      <div
+        class={
+          isMobile
+            ? " pt-[5vh] flex w-full justify-center h-full text-[6.5vw] space-x-[5vw] text-white"
+            : " pt-[5vh] flex w-full justify-center h-full space-x-[3vw] text-[3vw] text-white"
+        }
+      >
+        <Link
+          href={{
+            pathname: "/bill",
+            query: {
+              people: 1,
+            },
+          }}
+        >
+          <button
+            class={
+              isMobile
+                ? "w-[12vw] h-[10vh] border border-black rounded-[3vw] bg-[#101010]"
+                : "w-[10vw] h-[10vh] border border-black rounded-3xl bg-[#101010] transition hover:scale-105"
+            }
+          >
+            1
+          </button>
+        </Link>
+        <Link
+          href={{
+            pathname: "/bill",
+            query: {
+              people: 2,
+            },
+          }}
+        >
+          <button
+            class={
+              isMobile
+                ? "w-[12vw] h-[10vh] border border-black rounded-[3vw] bg-[#101010]"
+                : "w-[10vw] h-[10vh] border border-black rounded-3xl bg-[#101010] transition hover:scale-105"
+            }
+          >
+            2
+          </button>
+        </Link>
+        <Link
+          href={{
+            pathname: "/bill",
+            query: {
+              people: 3,
+            },
+          }}>
         <button
-        onClick={() => handleNum(2)} 
-        class={isMobile? "w-[12vw] h-[10vh] border border-black rounded-[3vw] bg-[#101010]" : "w-[10vw] h-[10vh] border border-black rounded-3xl bg-[#101010] transition hover:scale-105"}>
-          2
-        </button>
-        <button 
-        onClick={() => handleNum(3)} 
-        class={isMobile? "w-[12vw] h-[10vh] border border-black rounded-[3vw] bg-[#101010]" : "w-[10vw] h-[10vh] border border-black rounded-3xl bg-[#101010] transition hover:scale-105"}>
+          class={
+            isMobile
+              ? "w-[12vw] h-[10vh] border border-black rounded-[3vw] bg-[#101010]"
+              : "w-[10vw] h-[10vh] border border-black rounded-3xl bg-[#101010] transition hover:scale-105"
+          }
+        >
           3
         </button>
-        <button onClick={() => handleNum(4)}  
-        class={isMobile? "w-[12vw] h-[10vh] border border-black rounded-[3vw] bg-[#101010]" : "w-[10vw] h-[10vh] border border-black rounded-3xl bg-[#101010] transition hover:scale-105"}>
+        </Link>
+        <Link
+          href={{
+            pathname: "/bill",
+            query: {
+              people: 4,
+            },
+          }}>
+        <button
+          class={
+            isMobile
+              ? "w-[12vw] h-[10vh] border border-black rounded-[3vw] bg-[#101010]"
+              : "w-[10vw] h-[10vh] border border-black rounded-3xl bg-[#101010] transition hover:scale-105"
+          }
+        >
           4
         </button>
-        <button 
-        onClick={() => handleNum(5)} 
-        class={isMobile? "w-[12vw] h-[10vh] border border-black rounded-[3vw] bg-[#101010]" : "w-[10vw] h-[10vh] border border-black rounded-3xl bg-[#101010] transition hover:scale-105"}>
+        </Link>
+        <Link
+          href={{
+            pathname: "/bill",
+            query: {
+              people: 5,
+            },
+          }}>
+        <button
+          class={
+            isMobile
+              ? "w-[12vw] h-[10vh] border border-black rounded-[3vw] bg-[#101010]"
+              : "w-[10vw] h-[10vh] border border-black rounded-3xl bg-[#101010] transition hover:scale-105"
+          }
+        >
           5
         </button>
-    
+        </Link>
       </div>
     </div>
   );
